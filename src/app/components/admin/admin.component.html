@@ -1,0 +1,51 @@
+<!-- src/app/admin/admin.component.html -->
+
+<div>
+    <h2>Admin Management</h2>
+  
+    <!-- Display the list of admins -->
+    <div *ngIf="admins.length > 0">
+      <h3>Admin List:</h3>
+      <ul>
+        <li *ngFor="let admin of admins">
+          {{ admin.name }} ({{ admin.username }})
+          <button (click)="deleteAdmin(admin.adminId)">Delete</button>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="admins.length === 0">
+      <p>No admins available.</p>
+    </div>
+  
+    <!-- Form to add a new admin -->
+    <div>
+      <h3>Add New Admin:</h3>
+      <form (submit)="addAdmin()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="newAdmin.username" required />
+  
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="newAdmin.password" required />
+  
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="newAdmin.name" required />
+  
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" [(ngModel)]="newAdmin.contact" required />
+  
+        <!-- If you have a Company property in Admin, you can include it here -->
+        <!-- <label for="company">Company:</label>
+        <input type="text" id="company" [(ngModel)]="newAdmin.company" required /> -->
+  
+        <button type="submit">Add Admin</button>
+      </form>
+    </div>
+  </div>
+  
+  <div>
+    <button (click)="addAdmin()">Add Admin</button>
+  </div>
+  <div>
+    <app-adminlist [admins]="admins"></app-adminlist>
+  </div>
+  

@@ -1,0 +1,10 @@
+<!-- src/app/admin-list/admin-list.component.html -->
+<div>
+    <h3>Admin List:</h3>
+    <ul>
+      <li *ngFor="let admin of admins">
+        {{ admin.name }} ({{ admin.username }})
+      </li>
+    </ul>
+  </div>
+  
